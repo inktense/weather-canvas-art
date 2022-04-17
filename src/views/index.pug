@@ -1,0 +1,10 @@
+extends layout
+
+block layout-content
+    div.c-formContainer
+        form.c-form(action="/weather", method="get") 
+            input.c-form__input(type="text", name="location", value="", placeholder="Location")
+            label.c-form__buttonLabel(for="checkbox") 
+                button.c-form__button(type="submit") Send
+
+
