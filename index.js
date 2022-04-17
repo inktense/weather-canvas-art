@@ -1,10 +1,9 @@
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 
-import express from "express";
-import path from "path";
-import { fileURLToPath } from 'url';
+const express = require( "express");
+const path = require( "path");
 
-import weather from "./src/routes/weather.js";
+const weatherRouter = require("./src/routes/weather.js");
 
 // App Variables
 const app = express();
@@ -12,9 +11,6 @@ const port = process.env.PORT || "8000";
 
 //  App Configuration
 dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "pug");
@@ -26,7 +22,7 @@ app.get("/", (req, res) => {
   // relative to the templates source directory, views
   res.render("index");
 });
-app.use("/weather", weather);
+app.use("/weather", weatherRouter);
 
 // Server Activation
 app.listen(port, () => {

@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Weather app using code art",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "dev": "nodemon ./index.js",
-    "ui": "browser-sync start --config bs-config.js"
+    "ui": "browser-sync start --config bs-config.js",
+    "build": "browserify index.js -t babelify | uglifyjs -m -c > bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +18,11 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "babelify": "^10.0.0",
     "browser-sync": "^2.27.9",
-    "nodemon": "^2.0.15"
+    "browserify": "^17.0.0",
+    "nodemon": "^2.0.15",
+    "uglify-js": "^3.15.4"
   }
 }

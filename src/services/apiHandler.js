@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 
 async function getData(location) {
   const url = process.env.URL;
@@ -16,4 +16,4 @@ async function getData(location) {
   }
 }
 
-export { getData };
+module.exports = { getData };
